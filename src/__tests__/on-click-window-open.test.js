@@ -11,6 +11,7 @@ beforeAll(() => {
     delete window.open;
     // Replace with the custom value
     window.open = jest.fn();
+    
     // Works for `location` too, eg:
     // window.location = { origin: 'http://localhost:3100' };
 });

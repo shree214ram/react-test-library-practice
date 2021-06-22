@@ -2,6 +2,7 @@ import * as React from 'react'
 import {render} from 'react-dom'
 import {AppRouter} from './react-router'
 import Question  from './on-click-window-open'
+import TestHookApp  from './test_hook_main'
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
       </div>
       <AppRouter/>
       <Question question="Back To Search" answer="Yes, it is." />
+      <TestHookApp />
     </div>
   )
 }

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for on-click-window-open.js</title>
+    <title>Code coverage report for test_hook.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> on-click-window-open.js</h1>
+        <h1><a href="index.html">All files</a> test_hook.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -32,14 +32,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
@@ -90,17 +90,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -115,36 +115,36 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as React from 'react'
-import {useState} from 'react'
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState } from 'react';
 &nbsp;
-const Question = ({ question, answer }) =&gt; {
-    const [showAnswer, setShowAnswer] = useState(false)
-    const onWindowOpen = () =&gt;{
-        window.open("http://localhost:3000/about","_self")
-    }
-    return (
-        &lt;&gt;
-            &lt;article&gt;
-                &lt;header&gt;
-                    &lt;h1 &gt;Testing&lt;/h1&gt;
-                    &lt;h2 onClick={() =&gt; onWindowOpen()} data-testid="question"&gt;{question}&lt;/h2&gt;
-                    &lt;button onClick={() =&gt; setShowAnswer(!showAnswer)}&gt;
-                        {
-                            !showAnswer ? "ABC" : "XYZ"
-                        }
-                    &lt;/button&gt;
-                &lt;/header&gt;
-                {
-                    showAnswer &amp;&amp; &lt;p data-testid="answer"&gt;{answer}&lt;/p&gt;
-                }
-            &lt;/article&gt;
-        &lt;/&gt;
-    )
+&nbsp;
+const TestHook = (props) =&gt; {
+  const [state, setState] = useState("Initial State")
+&nbsp;
+  const changeState = () =&gt; {
+    setState("Initial State Changed")
+  }
+&nbsp;
+  const changeNameToSteve = () =&gt; {
+    props.changeName()
+  }
+&nbsp;
+  return (
+    &lt;div&gt;
+      &lt;button onClick={changeState}&gt;
+        State Change Button
+    &lt;/button&gt;
+      &lt;p&gt;{state}&lt;/p&gt;
+      &lt;button onClick={changeNameToSteve}&gt;
+        Change Name
+    &lt;/button&gt;
+      &lt;p&gt;{props.name}&lt;/p&gt;
+    &lt;/div&gt;
+  )
 }
 &nbsp;
-export default Question;
-&nbsp;</pre></td></tr></table></pre>
+&nbsp;
+export default TestHook;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
